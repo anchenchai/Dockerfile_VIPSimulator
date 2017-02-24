@@ -1,0 +1,32 @@
+How to build VIPSimulator docker image from Dockerfile:
+
+1) Install Docker:
+   sudo apt-get install docker-engine
+
+2) Start the docker daemon:
+   sudo service docker start
+
+3) Build VIPSimulator docker image from Dockerfile:
+   docker build -f /path/to/Dockerfile -t vipsimulator .
+
+   -This step may last for 15-20 mins 
+   -Finally, this image will contain Simgrid, log2sim and vipsimulator and the size
+    will be around 1GB
+
+4) Run docker image and mount a shared folder between container and os by -v:
+   docker run -it --rm -v /path/to/workflow:/container/test vipsimulator /bin/bash
+
+    
+5) Prepare input file for simulator:
+   go to the workflow-xxx in /container/test.
+   In /workflow-xxx, generate the deployment, platform and launcher file by:
+
+   ${LOG2SIM_HOME}/deployment_generator.R workflow-xxx
+   ${LOG2SIM_HOME}/platform_generator.R workflow-xxx
+   ${LOG2SIM_HOME}/launcher_generator.sh workflow-xxx yes
+
+
+6) Launch simulation:
+   sh run_simulations_workflow-xxx.sh 
+
+   Finally, the simulation results can be found in folder "/csv_files"
