@@ -1,0 +1,16 @@
+Data for workflow-1ZGvD5 originally produced on: 02/09/16 17:12:02
+
+Directory organization:
+	./ -> simulate_workflow-1ZGvD5.sh  Analysis_workflow-1ZGvD5.Rmd README
+	csv_files/ -> db_dump.csv worker_nodes.csv file_transfer.csv se_bandwidth.csv
+	simgrid_files/ -> XML files and LfcCatalog_workflow-1ZGvD5.csv
+	timings/ -> real_times.csv
+
+To partially regenerate some files do:
+	../../scripts/deployment_generator.sh workflow-1ZGvD5
+	../../scripts/deployment_generator.R workflow-1ZGvD5
+	../../scripts/platform_generator.sh workflow-1ZGvD5
+	../../scripts/platform_generator.R workflow-1ZGvD5
+	../../scripts/launcher_generator.sh workflow-1ZGvD5
+	../../scripts/mock_generator.sh workflow-1ZGvD5
+
