@@ -30,3 +30,9 @@ How to build VIPSimulator docker image from Dockerfile:
    sh run_simulations_workflow-xxx.sh 
 
    Finally, the simulation results can be found in folder "/csv_files"
+
+
+Note:
+   More data of workflows can be downloaded from : https://figshare.com/articles/Companion_of_the_article_on_Modeling_Distributed_Platforms_from_Application_Traces_for_Realistic_File_Transfer_Simulation_/4253426/3
+
+   All workflows are in folder data.tgz.    
