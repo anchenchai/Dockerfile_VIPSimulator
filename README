@@ -14,25 +14,24 @@ How to build VIPSimulator docker image from Dockerfile:
     will be around 1GB
 
 4) Run docker image and mount a shared folder between container and os by -v:
-   docker run -it --rm -v /path/to/workflow:/container/test vipsimulator /bin/bash
+   docker run -it --rm -v /path/to/Dockerfile_VIPSimulator/Example/workflow-1ZGvD5:/container/test vipsimulator /bin/bash
 
+   -More data of workflows can be downloaded from : https://figshare.com/articles/Companion_of_the_article_on_Modeling_Distributed_Platforms_from_Application_Traces_for_Realistic_File_Transfer_Simulation_/4253426/3
+
+   All workflows are in folder data.tgz. 
     
 5) Prepare input file for simulator:
-   go to the workflow-xxx in /container/test.
-   In /workflow-xxx, generate the deployment, platform and launcher file by:
+   go to the /Example/workflow-1ZGvD5.
+   In /workflow-1ZGvD5, generate the deployment, platform and launcher file by:
 
-   ${LOG2SIM_HOME}/deployment_generator.R workflow-xxx
-   ${LOG2SIM_HOME}/platform_generator.R workflow-xxx
-   ${LOG2SIM_HOME}/launcher_generator.sh workflow-xxx yes
+   ${LOG2SIM_HOME}/deployment_generator.R workflow-1ZGvD5
+   ${LOG2SIM_HOME}/platform_generator.R workflow-1ZGvD5
+   ${LOG2SIM_HOME}/launcher_generator.sh workflow-1ZGvD5 yes
 
 
 6) Launch simulation:
-   sh run_simulations_workflow-xxx.sh 
+   sh run_simulations_workflow-1ZGvD5.sh 
 
-   Finally, the simulation results can be found in folder "/csv_files"
+   Finally, the simulation results can be found in folder "/workflow-1ZGvD5/csv_files"
 
-
-Note:
-   More data of workflows can be downloaded from : https://figshare.com/articles/Companion_of_the_article_on_Modeling_Distributed_Platforms_from_Application_Traces_for_Realistic_File_Transfer_Simulation_/4253426/3
-
-   All workflows are in folder data.tgz.    
+       
