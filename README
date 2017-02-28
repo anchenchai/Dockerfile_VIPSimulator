@@ -32,6 +32,6 @@ How to build VIPSimulator docker image from Dockerfile:
 6) Launch simulation:
    sh run_simulations_workflow-1ZGvD5.sh 
 
-   Finally, the simulation results can be found in folder "/workflow-1ZGvD5/csv_files"
+   Finally, the simulation results can be found in folder "/container/test/workflow-1ZGvD5/csv_files"
 
        
