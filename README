@@ -18,10 +18,10 @@ How to build VIPSimulator docker image from Dockerfile:
 
    -More data of workflows can be downloaded from : https://figshare.com/articles/Companion_of_the_article_on_Modeling_Distributed_Platforms_from_Application_Traces_for_Realistic_File_Transfer_Simulation_/4253426/3
 
-   All workflows are in folder data.tgz. 
+   -All workflows are in folder data.tgz. 
     
 5) Prepare input file for simulator:
-   go to the /Example/workflow-1ZGvD5.
+   go to the workflow-1ZGvD5 in /container/test.
    In /workflow-1ZGvD5, generate the deployment, platform and launcher file by:
 
    ${LOG2SIM_HOME}/deployment_generator.R workflow-1ZGvD5
