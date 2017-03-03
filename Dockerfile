@@ -2,7 +2,7 @@ FROM ubuntu:latest
 MAINTAINER Anchen CHAI (chai@creatis.insa-lyon.fr)
 
 RUN apt-get update && apt-get install -y \
-    git gcc g++ cmake python3 default-jdk \
+    git gcc g++ cmake python3 default-jdk subversion \
     libboost-dev libboost-context-dev \
     libboost-test-dev doxygen \
     r-base r-cran-xml r-cran-plyr r-cran-reshape2

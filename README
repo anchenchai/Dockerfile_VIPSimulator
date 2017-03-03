@@ -1,4 +1,4 @@
-How to build VIPSimulator docker image from Dockerfile:
+A. How to build VIPSimulator docker image from Dockerfile manually:
 
 1) Install Docker:
    sudo apt-get install docker-engine
@@ -13,25 +13,37 @@ How to build VIPSimulator docker image from Dockerfile:
    -Finally, this image will contain Simgrid, log2sim and vipsimulator and the size
     will be around 1GB
 
-4) Run docker image and mount a shared folder between container and os by -v:
-   docker run -it --rm -v /path/to/Dockerfile_VIPSimulator/Example/workflow-1ZGvD5:/container/test vipsimulator /bin/bash
 
-   -More data of workflows can be downloaded from : https://figshare.com/articles/Companion_of_the_article_on_Modeling_Distributed_Platforms_from_Application_Traces_for_Realistic_File_Transfer_Simulation_/4253426/3
+B. How to launch the simulation in docker image:
 
-   -All workflows are in folder data.tgz. 
-    
-5) Prepare input file for simulator:
-   go to the workflow-1ZGvD5 in /container/test.
-   In /workflow-1ZGvD5, generate the deployment, platform and launcher file by:
+
+1) Run docker image and mount a shared folder between container and os by -v:
+   docker run -it --rm vipsimulator /bin/bash
+
+
+2) Retrieve the data in image: svn checkout https://github.com/anchenchai/Dockerfile_VIPSimulator/trunk/Example/workflow-1ZGvD5
+
+3) cd workflow-1ZGvD5
+
+4) Prepare input files for simulator:
+   generate the deployment, platform and launcher file by:
 
    ${LOG2SIM_HOME}/deployment_generator.R workflow-1ZGvD5
    ${LOG2SIM_HOME}/platform_generator.R workflow-1ZGvD5
    ${LOG2SIM_HOME}/launcher_generator.sh workflow-1ZGvD5 yes
 
-
-6) Launch simulation:
+5) Launch simulation:
    sh run_simulations_workflow-1ZGvD5.sh 
 
-   Finally, the simulation results can be found in folder "/container/test/workflow-1ZGvD5/csv_files"
+   Finally, the simulation results can be found in folder "/workflow-1ZGvD5/csv_files"
 
        
+
+Notes:
+   -More data of workflows can be downloaded from : https://figshare.com/articles/Companion_of_the_article_on_Modeling_Distributed_Platforms_from_Application_Traces_for_Realistic_File_Transfer_Simulation_/4253426/3
+
+   -You can download the data locally and then mount it in the container with "-v" option when running the image:
+    
+   docker run -it --rm -v /path/to/workflows:/container/data vipsimulator /bin/bash
+
+   Then the data can be found in folder /container/data in container.
