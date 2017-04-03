@@ -47,3 +47,5 @@ Notes:
    docker run -it --rm -v /path/to/workflows:/container/data vipsimulator /bin/bash
 
    Then the data can be found in folder /container/data in container.
+
+   New Version: 03/04/2017
